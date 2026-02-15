@@ -1,0 +1,37 @@
+baseURL: https://example.org/
+languageCode: en-US
+disableKinds: ["rss", "taxonomy", "term"]
+menus:
+  main:
+  - name: Home
+    url: "#"
+    weight: 10
+  - name: Info
+    url: "#info"
+    weight: 20
+  - name: Programm
+    url: "#schedule"
+    weight: 30
+  - name: Attraktionen
+    url: "#attractions"
+    weight: 40
+  - name: Standort
+    url: "#location"
+    weight: 50
+  - name: Sponsoren
+    url: "#sponsors"
+    weight: 60
+module:
+  hugoVersion:
+    extended: false
+    min: 0.146.0
+title: My New Hugo Site
+event:
+  name:
+  date:
+  map:
+  sponsors:
+    - name:
+      category:
+      logo:
+      url:

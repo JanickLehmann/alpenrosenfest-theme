@@ -1,0 +1,57 @@
+{{- if gt (len site.Params.event.sponsors) 0 }}
+<section id="sponsors" class="pt-5">
+    <div class="container">
+        <div class="row">
+            <h2>Sponsoren</h2>
+            <p>
+                Wir danken unseren Sponsoren für ihre Unterstützung, die es uns ermöglicht, das Alpenrosenfest jedes
+                Jahr durchzuführen.
+                Ihre großzügige Unterstützung trägt dazu bei, dass wir ein vielfältiges Programm, spannende Attraktionen
+                und eine festliche Atmosphäre bieten können.
+                Vielen Dank an alle unsere Sponsoren für ihr Engagement und ihre Unterstützung!
+            </p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {{- range site.Params.event.sponsors }}
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">
+                        {{ .category }}
+                    </h5>
+                    <img src="{{ .logo }}"
+                        class="card-img-top p-1" alt="{{ .name }}">
+                    <div class="card-body">
+                        <a href="{{ .url }}" class="stretched-link">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+            {{- end }}
+        </div>
+    </div>
+</section>
+{{- end }}
+
+<!-- <div class="col">
+                <div class="card">
+                    <h5 class="card-header">
+                        Shuttle-Bus
+                    </h5>
+                    <img src="https://kreisel-garage.ch/wp-content/uploads/2022/10/logo-kreisel-garage-white.svg"
+                        class="card-img-top p-1" alt="Kreisel Garage">
+                    <div class="card-body">
+                        <a href="#" class="stretched-link">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-header">
+                        Fest
+                    </h5>
+                    <img src="https://www.kuratlejaecker.ch/storage/cms/kuratlegroup/logo_and_favicons/kuratle-jaecker-logo.svg"
+                        class="card-img-top p-1" alt="Kuratle Jaecker">
+                    <div class="card-body">
+                        <a href="#" class="stretched-link">Mehr erfahren</a>
+                    </div>
+                </div>
+            </div> -->

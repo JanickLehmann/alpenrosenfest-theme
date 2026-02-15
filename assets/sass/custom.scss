@@ -1,0 +1,13 @@
+.carousel-caption {
+  bottom: 50vh;
+}
+
+.carousel-item > img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: contain;
+}
