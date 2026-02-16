@@ -3,9 +3,10 @@
         <h5 class="card-header">
             {{ .description }}
         </h5>
-        <img src="{{ .logo }}" class="card-img-top p-1" alt="{{ .name }}">
+        <img src="{{ .logo }}" class="card-img-top p-3" alt="{{ .name }}">
         <div class="card-body">
-            <a href="{{ .url }}" class="stretched-link">Mehr erfahren</a>
+            <a href="{{ .url }}" class="stretched-link hidden-link">Mehr erfahren</a>
+            <p class="card-text">{{ .name }}</p>
         </div>
     </div>
 </div>
