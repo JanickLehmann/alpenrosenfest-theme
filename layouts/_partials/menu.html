@@ -27,11 +27,11 @@ Renders a menu for the given menu ID.
 {{- end }}
 
 {{- define "_partials/inline/menu/walk.html" }}
-{{- range .menuEntries }}
-<li class="nav-item">
-  <a class="nav-link" href="{{ .URL }}">
-    {{- .Name }}
-  </a>
-</li>
-{{- end }}
+  {{- range .menuEntries }}
+    <li class="nav-item">
+      <a class="nav-link" href="{{ .URL }}">
+        {{ .Name }}
+      </a>
+    </li>
+  {{- end }}
 {{- end }}

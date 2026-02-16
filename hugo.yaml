@@ -1,5 +1,4 @@
-baseURL: https://example.org/
-languageCode: en-US
+languageCode: de-CH
 disableKinds: ["rss", "taxonomy", "term"]
 menus:
   main:
@@ -7,7 +6,7 @@ menus:
     url: "#"
     weight: 10
   - name: Info
-    url: "#info"
+    url: "#about"
     weight: 20
   - name: Programm
     url: "#schedule"
@@ -25,13 +24,11 @@ module:
   hugoVersion:
     extended: false
     min: 0.146.0
-title: My New Hugo Site
-event:
-  name:
-  date:
-  map:
-  sponsors:
-    - name:
-      category:
-      logo:
-      url:
+title: Alpenrosenfest
+date:
+map:
+sponsors:
+  - name:
+    category:
+    logo:
+    url:

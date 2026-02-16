@@ -1,31 +1,29 @@
-<footer class="mt-5 text-center text-lg-start text-white" style="background-color: #000055;">
-    <div class="container d-flex justify-content-center py-5">
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
-            <i class="bi bi-facebook"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
-            <i class="bi bi-youtube"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
-            <i class="bi bi-instagram"></i>
-        </button>
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
-            <i class="bi bi-twitter"></i>
-        </button>
-    </div>
-
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-        {{ site.Copyright }}
-    </div>
+<footer class="mt-5 text-center text-lg-start text-white" style="background-color: #008a11;">
+  <div class="container d-flex justify-content-center py-5">
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
+      <i class="bi bi-facebook"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
+      <i class="bi bi-youtube"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
+      <i class="bi bi-instagram"></i>
+    </button>
+    <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: rgba(0, 0, 0, 0.5);">
+      <i class="bi bi-twitter"></i>
+    </button>
+  </div>
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    {{ site.Copyright }}
+  </div>
 </footer>
 
 {{- with resources.Get "js/bootstrap/bootstrap.bundle.min.js" }}
-    {{- if hugo.IsDevelopment }}
-        <script src="{{ .RelPermalink }}"></script>
-    {{- else }}
-        {{- with . | fingerprint }}
-            <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-        {{- end }}
+  {{- if hugo.IsDevelopment }}
+    <script src="{{ .RelPermalink }}"></script>
+  {{- else }}
+    {{- with . | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
     {{- end }}
+  {{- end }}
 {{- end }}
