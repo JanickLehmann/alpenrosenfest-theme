@@ -25,10 +25,7 @@ module:
     extended: false
     min: 0.146.0
 title: Alpenrosenfest
-date:
-map:
-sponsors:
-  - name:
-    category:
-    logo:
-    url:
+params:
+  carouselInterval: 8000
+  date:
+  map:
