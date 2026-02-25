@@ -1,0 +1,41 @@
+{{ $location := site.Params.location }}
+
+<section class="section section-location" id="anfahrt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ $location.label }}</span>
+      <h2 class="section-title">{{ $location.title }}</h2>
+    </div>
+    <div class="location-grid">
+      <div class="location-info">
+        {{ range $location.details }}
+          <div class="location-detail">
+            {{ partial "icon.html" (dict "icon" .icon) }}
+            <div>
+              <h4>{{ .title }}</h4>
+              <p>{{ .text | safeHTML }}</p>
+            </div>
+          </div>
+        {{ end }}
+      </div>
+      {{ if $location.map }}
+        <iframe class="location-map" allowfullscreen allow="geolocation" src="{{ $location.map }}"></iframe>
+      {{ else }}
+        <div class="location-map-placeholder">
+          <div class="map-placeholder-inner">
+            <svg viewBox="0 0 120 120" fill="none" width="80" height="80">
+              <circle cx="60" cy="50" r="30" stroke="var(--secondary)" stroke-width="2" opacity="0.3" />
+              <path d="M60 30C60 30 45 42 45 55c0 8.3 6.7 15 15 15s15-6.7 15-15c0-13-15-25-15-25z" fill="var(--accent)"
+                opacity="0.5" />
+              <circle cx="60" cy="52" r="5" fill="var(--background)" />
+              <path d="M20 85 Q40 75 60 80 Q80 85 100 78" stroke="var(--secondary)" stroke-width="1.5" opacity="0.3" />
+              <path d="M15 95 Q45 85 60 90 Q80 95 110 88" stroke="var(--secondary)" stroke-width="1.5" opacity="0.2" />
+            </svg>
+            <p>{{ $location.mapPlaceholderTitle }}</p>
+            <span>{{ $location.mapPlaceholderText }}</span>
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

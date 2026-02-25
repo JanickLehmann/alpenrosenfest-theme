@@ -1,0 +1,10 @@
+name = "Alpenrosenfest"
+license = "MIT"
+licenselink = "https://opensource.org/licenses/MIT"
+homepage = "https://github.com/JanickLehmann/alpenrosenfest-theme"
+description = "Single Page Hugo Theme für das Alpenrosenfest in Schneisingen."
+tags = ["single-page", "festival", "event", "responsive"]
+min_version = "0.155.0"
+
+[author]
+  name = "Janick Lehmann"

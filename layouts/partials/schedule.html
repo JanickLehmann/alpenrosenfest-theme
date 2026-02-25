@@ -1,0 +1,36 @@
+{{ $schedule := site.Params.schedule }}
+
+<section class="section section-schedule" id="programm">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ partialCached "date.html" . }}</span>
+      <h2 class="section-title">{{ $schedule.title }}</h2>
+      <p class="section-subtitle">{{ $schedule.subtitle }}</p>
+    </div>
+
+    {{ if gt (len $schedule.days) 1 }}
+    <div class="schedule-tabs">
+      {{ range $i, $day := $schedule.days }}
+      <button class="tab-btn{{ if eq $i 0 }} active{{ end }}" data-tab="{{ .id }}">{{ .tabLabel }}</button>
+      {{ end }}
+    </div>
+    {{ end }}
+
+    {{ range $i, $day := $schedule.days }}
+    <div class="schedule-day{{ if eq $i 0 }} active{{ end }}" id="{{ .id }}">
+      <div class="timeline">
+        {{ range .events }}
+        <div class="timeline-item">
+          <div class="timeline-time">{{ .time }}</div>
+          <div class="timeline-content">
+            <h4>{{ .title }}</h4>
+            <p>{{ .text }}</p>
+            {{ if .tag }}<span class="timeline-tag{{ with .tagClass }} {{ . }}{{ end }}">{{ .tag }}</span>{{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>

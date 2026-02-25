@@ -1,0 +1,23 @@
+{{ $sponsors := site.Params.sponsors }}
+
+{{ if $sponsors }}
+<section class="section section-sponsors" id="sponsoren">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ $sponsors.label }}</span>
+      <h2 class="section-title">{{ $sponsors.title }}</h2>
+    </div>
+    <div class="sponsors-grid">
+      {{ range $sponsors.items }}
+      <div class="sponsor-card">
+        <div class="sponsor-logo">
+          <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+        </div>
+        <h4 class="sponsor-name">{{ .name }}</h4>
+        <p class="sponsor-contribution">{{ .contribution }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

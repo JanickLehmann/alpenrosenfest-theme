@@ -1,0 +1,21 @@
+{{ $highlights := site.Params.highlights }}
+
+<section class="section section-highlights" id="highlights">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">{{ $highlights.label }}</span>
+      <h2 class="section-title">{{ $highlights.title }}</h2>
+    </div>
+    <div class="highlights-grid">
+      {{ range $highlights.cards }}
+      <div class="highlight-card">
+        <div class="highlight-icon">
+          {{ partial "icon.html" (dict "icon" .icon) }}
+        </div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,54 @@
+{{ $plant := site.Params.plant }}
+
+<section class="section section-plant" id="pflanze">
+  <div class="container">
+    <div class="plant-layout">
+      <div class="plant-visual">
+        <div class="plant-illustration">
+          <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Stem -->
+            <path d="M160 380 Q158 300 155 250 Q152 200 160 150" stroke="var(--secondary)" stroke-width="3"
+              fill="none" />
+            <path d="M160 380 Q162 300 165 250 Q168 200 160 150" stroke="var(--secondary)" stroke-width="3" fill="none"
+              opacity="0.5" />
+            <!-- Leaves -->
+            <path d="M155 320 Q120 310 100 330 Q120 340 155 325" fill="var(--secondary)" opacity="0.7" />
+            <path d="M165 290 Q200 280 220 300 Q200 310 165 295" fill="var(--secondary)" opacity="0.6" />
+            <path d="M155 260 Q125 245 110 260 Q125 275 155 265" fill="var(--secondary)" opacity="0.5" />
+            <path d="M165 230 Q190 220 205 235 Q190 248 165 235" fill="var(--secondary)" opacity="0.7" />
+            <!-- Flower cluster -->
+            <circle cx="140" cy="125" r="22" fill="var(--accent)" opacity="0.8" />
+            <circle cx="175" cy="120" r="20" fill="var(--accent)" opacity="0.7" />
+            <circle cx="155" cy="100" r="24" fill="var(--accent)" opacity="0.9" />
+            <circle cx="160" cy="140" r="18" fill="var(--accent)" opacity="0.6" />
+            <circle cx="130" cy="108" r="16" fill="var(--accent)" opacity="0.5" />
+            <circle cx="185" cy="138" r="14" fill="var(--accent)" opacity="0.5" />
+            <!-- Flower details (stamens) -->
+            <circle cx="150" cy="115" r="3" fill="var(--background)" />
+            <circle cx="165" cy="108" r="3" fill="var(--background)" />
+            <circle cx="145" cy="100" r="2.5" fill="var(--background)" />
+            <circle cx="170" cy="130" r="2.5" fill="var(--background)" />
+            <!-- Rust-colored leaf undersides (ferrugineum = rust-leaved) -->
+            <path d="M155 340 Q130 335 118 348 Q132 355 155 345" fill="#8B6914" opacity="0.4" />
+          </svg>
+        </div>
+      </div>
+      <div class="plant-text">
+        <span class="section-label">{{ $plant.label }}</span>
+        <h2 class="section-title">{{ $plant.title }}</h2>
+        <p class="plant-latin">{{ $plant.commonName }}</p>
+        {{ range $plant.description }}
+        <p>{{ . }}</p>
+        {{ end }}
+        <div class="plant-facts">
+          {{ range $plant.facts }}
+          <div class="fact">
+            <span class="fact-value">{{ .value }}</span>
+            <span class="fact-label">{{ .label }}</span>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

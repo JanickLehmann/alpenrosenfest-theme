@@ -1,0 +1,30 @@
+{{ $hero := site.Params.hero }}
+
+<header class="hero" id="hero" data-carousel-interval="{{ $hero.carouselInterval | default 5000 }}">
+  <div class="hero-carousel">
+    {{ range $i, $img := $hero.images }}
+    <div class="hero-slide{{ if eq $i 0 }} active{{ end }}">
+      {{ with resources.Get $img.src }}
+        <img src="{{ .RelPermalink }}" alt="{{ $img.alt }}" loading="{{ if eq $i 0 }}eager{{ else }}lazy{{ end }}">
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">{{ partialCached "date.html" . }}</p>
+    <h1 class="hero-title">{{ $hero.title | safeHTML }}</h1>
+    <p class="hero-subtitle">{{ site.Params.description }}</p>
+    <div class="hero-actions">
+      <a href="{{ $hero.primaryButtonHref }}" class="btn btn-primary">{{ $hero.primaryButtonText }}</a>
+      <a href="{{ $hero.secondaryButtonHref }}" class="btn btn-outline">{{ $hero.secondaryButtonText }}</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>{{ $hero.scrollHint }}</span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </div>
+</header>
