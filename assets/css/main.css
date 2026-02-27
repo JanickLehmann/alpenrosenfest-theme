@@ -7,18 +7,27 @@
    ═══════════════════════════════════════ */
 
 @font-face {
-  font-family: 'Nautilus';
-  src: url('/fonts/Nautilus.otf') format('opentype');
+  font-family: 'Nautilus Pompilius';
+  src:
+    local('Nautilus Pompilius'), local('Nautilus'),
+    url('/fonts/NautilusPompilius.ttf') format('truetype'),
+    url('/fonts/NautilusPompilius.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Arbutus Slab';
-  src: url('/fonts/ArbutusSlab.ttf') format('truetype');
+  src:
+    local('Arbutus Slab'),
+    url('/fonts/ArbutusSlab.ttf') format('truetype'),
+    url('/fonts/ArbutusSlab.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/fonts/SourceSans3.ttf') format('truetype');
+  src:
+    local('Source Sans 3'),
+    url('/fonts/SourceSans3.ttf') format('truetype'),
+    url('/fonts/SourceSans3.woff2') format('woff2');
 }
 
 :root {
@@ -38,7 +47,7 @@
   --shadow-lg: 0 8px 32px rgba(58, 48, 39, 0.12);
   --radius: 12px;
   --radius-lg: 20px;
-  --font-display: 'Nautilus', Georgia, 'Times New Roman', serif;
+  --font-display: 'Nautilus Pompilius', Georgia, 'Times New Roman', serif;
   --font-body: 'Arbutus Slab', 'Segoe UI', system-ui, sans-serif;
   --font-title: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -267,12 +276,14 @@ img {
 
 .nav-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
+  background: var(--text);
 }
 .nav-toggle.active span:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+  background: var(--text);
 }
 
 /* ── Hero ── */

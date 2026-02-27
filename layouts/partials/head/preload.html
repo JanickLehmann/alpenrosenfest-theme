@@ -1,0 +1,5 @@
+{{- with resources.Get "css/main.css" }}
+  {{- with . | minify }}
+    <link rel="preload" as="style" href="{{ .RelPermalink }}">
+  {{- end }}
+{{- end }}
