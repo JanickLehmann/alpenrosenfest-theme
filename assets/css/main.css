@@ -7,18 +7,27 @@
    ═══════════════════════════════════════ */
 
 @font-face {
-  font-family: 'Nautilus';
-  src: url('/fonts/Nautilus.otf') format('opentype');
+  font-family: 'Nautilus Pompilius';
+  src:
+    local('Nautilus Pompilius'), local('Nautilus'),
+    url('/fonts/NautilusPompilius.ttf') format('truetype'),
+    url('/fonts/NautilusPompilius.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Arbutus Slab';
-  src: url('/fonts/ArbutusSlab.ttf') format('truetype');
+  src:
+    local('Arbutus Slab'),
+    url('/fonts/ArbutusSlab.ttf') format('truetype'),
+    url('/fonts/ArbutusSlab.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'Source Sans 3';
-  src: url('/fonts/SourceSans3.ttf') format('truetype');
+  src:
+    local('Source Sans 3'),
+    url('/fonts/SourceSans3.ttf') format('truetype'),
+    url('/fonts/SourceSans3.woff2') format('woff2');
 }
 
 :root {
@@ -38,7 +47,7 @@
   --shadow-lg: 0 8px 32px rgba(58, 48, 39, 0.12);
   --radius: 12px;
   --radius-lg: 20px;
-  --font-display: 'Nautilus', Georgia, 'Times New Roman', serif;
+  --font-display: 'Nautilus Pompilius', Georgia, 'Times New Roman', serif;
   --font-body: 'Arbutus Slab', 'Segoe UI', system-ui, sans-serif;
   --font-title: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -137,13 +146,46 @@ img {
   transform: translateY(-2px);
 }
 
-/* ── Navigation ── */
-.navbar {
+/* ── Notification Banner ── */
+.site-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.banner {
+  background: var(--accent);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 24px;
+}
+
+.banner-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.banner-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.banner-text {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* ── Navigation ── */
+.navbar {
   padding: 20px 0;
   transition: all var(--transition);
   backdrop-filter: blur(4px);
@@ -267,12 +309,14 @@ img {
 
 .nav-toggle.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
+  background: var(--text);
 }
 .nav-toggle.active span:nth-child(2) {
   opacity: 0;
 }
 .nav-toggle.active span:nth-child(3) {
   transform: rotate(-45deg) translate(5px, -5px);
+  background: var(--text);
 }
 
 /* ── Hero ── */
@@ -688,8 +732,10 @@ img {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--accent-dark);
-  min-width: 60px;
+  width: 60px;
+  flex-shrink: 0;
   padding-top: 2px;
+  overflow-wrap: break-word;
 }
 
 .timeline-content {
@@ -715,6 +761,49 @@ img {
   color: var(--text-light);
   font-size: 0.92rem;
   margin-bottom: 8px;
+}
+
+.timeline-body.has-image {
+  display: flex;
+  align-items: start;
+  gap: 20px;
+}
+
+.timeline-body p {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.timeline-image-wrap {
+  flex-shrink: 0;
+  max-width: 50%;
+}
+
+.timeline-image-wrap a {
+  display: block;
+}
+
+.timeline-image {
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: calc(var(--radius) / 2);
+}
+
+@media (max-width: 600px) {
+  .timeline-body.has-image {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .timeline-image-wrap {
+    max-width: 100%;
+  }
+
+  .timeline-image {
+    margin-top: 8px;
+  }
 }
 
 .timeline-tag {
@@ -892,8 +981,6 @@ img {
   margin-bottom: 32px;
 }
 
-/* ── Footer ── */
-
 /* ── Sponsors ── */
 .section-sponsors {
   background: var(--background-light);
@@ -908,12 +995,15 @@ img {
 }
 
 .sponsor-card {
+  display: block;
   background: var(--white);
   border-radius: 16px;
   padding: 32px 24px;
   text-align: center;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   transition: transform var(--transition), box-shadow var(--transition);
+  text-decoration: none;
+  color: inherit;
 }
 
 .sponsor-card:hover {
@@ -949,6 +1039,7 @@ img {
   margin: 0;
 }
 
+/* ── Footer ── */
 .footer {
   background: var(--secondary-dark);
   color: rgba(255,255,255,0.7);
@@ -1104,7 +1195,7 @@ img {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .nav-toggle {
     display: flex;
   }

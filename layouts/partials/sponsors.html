@@ -1,6 +1,6 @@
 {{ $sponsors := site.Params.sponsors }}
 
-{{ if $sponsors }}
+{{ if $sponsors | len | gt 0 }}
 <section class="section section-sponsors" id="sponsoren">
   <div class="container">
     <div class="section-header">
@@ -9,13 +9,23 @@
     </div>
     <div class="sponsors-grid">
       {{ range $sponsors.items }}
-      <div class="sponsor-card">
-        <div class="sponsor-logo">
-          <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
-        </div>
-        <h4 class="sponsor-name">{{ .name }}</h4>
-        <p class="sponsor-contribution">{{ .contribution }}</p>
-      </div>
+        {{ if .url }}
+          <a href="{{ .url }}" class="sponsor-card" target="_blank" rel="noopener noreferrer">
+            <div class="sponsor-logo">
+              <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+            </div>
+            <h4 class="sponsor-name">{{ .name }}</h4>
+            <p class="sponsor-contribution">{{ .contribution }}</p>
+          </a>
+        {{ else }}
+          <div class="sponsor-card">
+            <div class="sponsor-logo">
+              <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+            </div>
+            <h4 class="sponsor-name">{{ .name }}</h4>
+            <p class="sponsor-contribution">{{ .contribution }}</p>
+          </div>
+        {{ end }}
       {{ end }}
     </div>
   </div>

@@ -1,22 +1,16 @@
+{{ partial "head/preload.html" . }}
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>
-  {{ if page.Title }}
-    {{ page.Title }} | {{ partialCached "date.html" . }}
-  {{ else }}
-    {{ site.Title }}
-  {{ end }}
-</title>
-<meta name="description" content="{{ site.Params.description }}">
 
-<link rel="icon" href="{{ "favicon.ico" | absURL }}" sizes="any" />
-<link rel="icon" type="image/png" sizes="32x32" href="{{ "favicon-32x32.png" | absURL }}" />
-<link rel="icon" type="image/png" sizes="16x16" href="{{ "favicon-16x16.png" | absURL }}" />
-<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | absURL }}" />
-<link rel="apple-touch-icon" sizes="180x180" href="{{ "apple-touch-icon.png" | absURL }}" />
-<link rel="manifest" href="{{ "site.webmanifest" | absURL }}" />
+{{ partial "head/meta.html" .}}
+
+<link rel="icon" type="image/png" sizes="32x32" href="{{ absURL "favicon-32x32.png" }}" />
+<link rel="icon" type="image/png" sizes="16x16" href="{{ absURL "favicon-16x16.png" }}" />
+<link rel="icon" type="image/png" sizes="48x48" href="{{ absURL "favicon-48x48.png" }}" />
+<link rel="shortcut icon" type="image/x-icon" href="{{ absURL "favicon.ico" }}" />
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="{{ absURL "apple-touch-icon.png" }}" />
+<link rel="manifest" href="{{ absURL "site.webmanifest" }}" />
 
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
-
-{{ hugo.Generator }}

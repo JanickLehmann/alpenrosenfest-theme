@@ -1,8 +1,9 @@
 {{/* SVG icon partial — pass .icon as the icon name */}}
 {{ $icon := .icon }}
+{{ $class := .class }}
 
 {{ if eq $icon "flower" }}
-<svg viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="20" stroke="var(--secondary)" stroke-width="2"/><path d="M24 12C24 12 18 18 18 26c0 4 2.7 8 6 10 3.3-2 6-6 6-10 0-8-6-14-6-14z" fill="var(--accent)" opacity="0.8"/><path d="M14 28c-2-1-5-.5-6 2 2 1.5 5 1 6.5-1M34 28c2-1 5-.5 6 2-2 1.5-5 1-6.5-1" fill="var(--secondary)" opacity="0.6"/></svg>
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 4C16 4 10 10 10 18C10 22 12.7 26 16 28C19.3 26 22 22 22 18C22 10 16 4 16 4Z" fill="var(--accent)"/><path d="M16 10C14 13 13 16 13 18.5C13 21.5 14.3 24 16 25.5C17.7 24 19 21.5 19 18.5C19 16 18 13 16 10Z" fill="var(--accent-light)" opacity="0.5"/><path d="M10 20C8 19 5 19.5 4 22C6 23.5 9 23 10.5 21" stroke="var(--secondary)" stroke-width="1.5" fill="var(--secondary)" opacity="0.7"/><path d="M22 20C24 19 27 19.5 28 22C26 23.5 23 23 21.5 21" stroke="var(--secondary)" stroke-width="1.5" fill="var(--secondary)" opacity="0.7"/></svg>
 
 {{ else if eq $icon "house" }}
 <svg viewBox="0 0 48 48" fill="none"><path d="M8 36h32M14 36V24l10-12 10 12v12" stroke="var(--secondary)" stroke-width="2"/><circle cx="24" cy="26" r="4" fill="var(--accent)" opacity="0.6"/><path d="M20 36v-6h8v6" stroke="var(--secondary)" stroke-width="2"/></svg>
