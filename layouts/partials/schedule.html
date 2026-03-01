@@ -20,12 +20,21 @@
     <div class="schedule-day{{ if eq $i 0 }} active{{ end }}" id="{{ .id }}">
       <div class="timeline">
         {{ range .events }}
+        {{ $event := . }}
         <div class="timeline-item">
           <div class="timeline-time">{{ .time }}</div>
           <div class="timeline-content">
             <h4>{{ .title }}</h4>
-            <p>{{ .text }}</p>
-            {{ if .tag }}<span class="timeline-tag{{ with .tagClass }} {{ . }}{{ end }}">{{ .tag }}</span>{{ end }}
+            <div class="timeline-body{{ if .image }} has-image{{ end }}">
+              <p>{{ .text }}</p>
+              {{ with .image }}
+              <div class="timeline-image-wrap">
+                {{ with $event.imageLink }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end }}
+                <img src="{{ . }}" alt="" class="timeline-image" loading="lazy">
+                {{ with $event.imageLink }}</a>{{ end }}
+              </div>
+              {{ end }}
+            </div>
           </div>
         </div>
         {{ end }}

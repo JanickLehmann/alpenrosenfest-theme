@@ -1,16 +1,7 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="{{ site.Home.Permalink }}" class="nav-logo">
-      <svg class="nav-logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 4C16 4 10 10 10 18C10 22 12.7 26 16 28C19.3 26 22 22 22 18C22 10 16 4 16 4Z"
-          fill="var(--accent)" />
-        <path d="M16 10C14 13 13 16 13 18.5C13 21.5 14.3 24 16 25.5C17.7 24 19 21.5 19 18.5C19 16 18 13 16 10Z"
-          fill="var(--accent-light)" opacity="0.5" />
-        <path d="M10 20C8 19 5 19.5 4 22C6 23.5 9 23 10.5 21" stroke="var(--secondary)" stroke-width="1.5"
-          fill="var(--secondary)" opacity="0.7" />
-        <path d="M22 20C24 19 27 19.5 28 22C26 23.5 23 23 21.5 21" stroke="var(--secondary)" stroke-width="1.5"
-          fill="var(--secondary)" opacity="0.7" />
-      </svg>
+      {{ partial "icon.html" (dict "icon" "flower" "class" "nav-logo-icon") }}
       <span>{{ site.Title }}</span>
     </a>
     <button class="nav-toggle" aria-label="Menü" aria-expanded="false">
@@ -18,7 +9,7 @@
     </button>
     <ul class="nav-links">
       {{ range site.Params.nav }}
-      <li><a href="{{ .href }}">{{ .label }}</a></li>
+        <li><a href="{{ .href }}">{{ .label }}</a></li>
       {{ end }}
     </ul>
   </div>
