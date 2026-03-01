@@ -635,6 +635,172 @@ img {
   letter-spacing: 0.08em;
 }
 
+/* ── Rhododendron ferrugineum Animation ── */
+
+/* Stem growth via stroke-dashoffset */
+.rhodo-stem {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  fill: none;
+}
+.plant-visual.revealed .rhodo-stem {
+  animation: rhodo-draw 1.4s ease-out forwards;
+}
+.plant-visual.revealed .rhodo-stem-d1 {
+  animation-delay: 0.4s;
+}
+.plant-visual.revealed .rhodo-stem-d2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes rhodo-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Leaves — scale in from center of each leaf's bounding box */
+.rhodo-leaf,
+.rhodo-vein {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0.2);
+}
+.plant-visual.revealed .rhodo-leaf,
+.plant-visual.revealed .rhodo-vein {
+  animation: rhodo-leaf-in 0.55s ease-out forwards;
+}
+
+/* Stagger bottom-to-top */
+.plant-visual.revealed .rl-1  { animation-delay: 0.3s; }
+.plant-visual.revealed .rl-2  { animation-delay: 0.45s; }
+.plant-visual.revealed .rl-3  { animation-delay: 0.55s; }
+.plant-visual.revealed .rl-4  { animation-delay: 0.65s; }
+.plant-visual.revealed .rl-5  { animation-delay: 0.7s; }
+.plant-visual.revealed .rl-6  { animation-delay: 0.75s; }
+.plant-visual.revealed .rl-7  { animation-delay: 0.85s; }
+.plant-visual.revealed .rl-8  { animation-delay: 0.9s; }
+.plant-visual.revealed .rl-9  { animation-delay: 0.95s; }
+.plant-visual.revealed .rl-10 { animation-delay: 1.0s; }
+
+@keyframes rhodo-leaf-in {
+  0%   { opacity: 0; transform: scale(0.2); }
+  60%  { opacity: 0.85; transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* Flower bloom — scale from each flower's center */
+.rhodo-flower,
+.rhodo-bud {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: scale(0);
+}
+.plant-visual.revealed .rhodo-flower,
+.plant-visual.revealed .rhodo-bud {
+  animation: rhodo-bloom 0.7s ease-out forwards;
+}
+
+/* Stagger flower bloom outward from center */
+.plant-visual.revealed .rf-1 { animation-delay: 1.15s; }
+.plant-visual.revealed .rf-6 { animation-delay: 1.25s; }
+.plant-visual.revealed .rf-7 { animation-delay: 1.3s; }
+.plant-visual.revealed .rf-2 { animation-delay: 1.4s; }
+.plant-visual.revealed .rf-3 { animation-delay: 1.45s; }
+.plant-visual.revealed .rf-4 { animation-delay: 1.55s; }
+.plant-visual.revealed .rf-5 { animation-delay: 1.6s; }
+.plant-visual.revealed .rhodo-bud { animation-delay: 1.7s; }
+
+@keyframes rhodo-bloom {
+  0%   { opacity: 0; transform: scale(0) rotate(-12deg); }
+  55%  { opacity: 0.85; transform: scale(1.1) rotate(2deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* Pedicels fade in just before flowers */
+.rhodo-pedicels {
+  opacity: 0;
+}
+.plant-visual.revealed .rhodo-pedicels {
+  animation: rhodo-fade 0.5s ease-out 1.0s forwards;
+}
+
+@keyframes rhodo-fade {
+  to { opacity: 0.7; }
+}
+
+/* Stamens appear after petals open */
+.rhodo-stamens {
+  opacity: 0;
+}
+.plant-visual.revealed .rf-1 .rhodo-stamens {
+  animation: rhodo-fade-full 0.4s ease-out 1.85s forwards;
+}
+.plant-visual.revealed .rf-2 .rhodo-stamens {
+  animation: rhodo-fade-full 0.4s ease-out 1.95s forwards;
+}
+.plant-visual.revealed .rf-3 .rhodo-stamens {
+  animation: rhodo-fade-full 0.4s ease-out 2.0s forwards;
+}
+
+@keyframes rhodo-fade-full {
+  to { opacity: 1; }
+}
+
+/* Ambient glow pulses behind flower cluster */
+.rhodo-glow {
+  opacity: 0;
+}
+.plant-visual.revealed .rhodo-glow {
+  animation: rhodo-glow-pulse 4s ease-in-out 1.5s infinite;
+}
+
+@keyframes rhodo-glow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50%      { opacity: 1; }
+}
+
+/* Continuous gentle sway (whole plant, from stem base) */
+.plant-visual.revealed .rhodo-plant {
+  animation: rhodo-sway 6s ease-in-out 2.8s infinite;
+  transform-origin: 200px 500px;
+}
+
+@keyframes rhodo-sway {
+  0%, 100% { transform: rotate(-0.6deg); }
+  50%      { transform: rotate(0.6deg); }
+}
+
+/* Flower cluster glow shimmer */
+.plant-visual.revealed .rhodo-flowers {
+  animation: rhodo-flower-glow 5s ease-in-out 3s infinite;
+}
+
+@keyframes rhodo-flower-glow {
+  0%, 100% { filter: drop-shadow(0 0 4px rgba(217, 106, 122, 0.15)); }
+  50%      { filter: drop-shadow(0 0 14px rgba(217, 106, 122, 0.45)); }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .rhodo-stem,
+  .rhodo-leaf,
+  .rhodo-vein,
+  .rhodo-flower,
+  .rhodo-bud,
+  .rhodo-pedicels,
+  .rhodo-stamens,
+  .rhodo-glow,
+  .rhodo-plant,
+  .rhodo-flowers {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    stroke-dashoffset: 0 !important;
+    filter: none !important;
+  }
+}
+
 /* ── schedule Section ── */
 .section-schedule {
   background: var(--background);
@@ -1339,4 +1505,10 @@ img {
   .section { padding: 40px 0; }
   .about-card, .timeline-item, .highlight-card, .location-detail,
   .plant-text, .plant-visual { opacity: 1 !important; transform: none !important; }
+  .rhodo-stem { stroke-dashoffset: 0 !important; }
+  .rhodo-leaf, .rhodo-vein, .rhodo-flower, .rhodo-bud, .rhodo-pedicels,
+  .rhodo-stamens, .rhodo-glow, .rhodo-flowers {
+    opacity: 1 !important; transform: none !important;
+    animation: none !important; filter: none !important;
+  }
 }

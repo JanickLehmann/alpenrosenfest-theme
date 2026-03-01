@@ -5,31 +5,248 @@
     <div class="plant-layout">
       <div class="plant-visual">
         <div class="plant-illustration">
-          <svg viewBox="0 0 320 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- Stem -->
-            <path d="M160 380 Q158 300 155 250 Q152 200 160 150" stroke="var(--secondary)" stroke-width="3"
-              fill="none" />
-            <path d="M160 380 Q162 300 165 250 Q168 200 160 150" stroke="var(--secondary)" stroke-width="3" fill="none"
-              opacity="0.5" />
-            <!-- Leaves -->
-            <path d="M155 320 Q120 310 100 330 Q120 340 155 325" fill="var(--secondary)" opacity="0.7" />
-            <path d="M165 290 Q200 280 220 300 Q200 310 165 295" fill="var(--secondary)" opacity="0.6" />
-            <path d="M155 260 Q125 245 110 260 Q125 275 155 265" fill="var(--secondary)" opacity="0.5" />
-            <path d="M165 230 Q190 220 205 235 Q190 248 165 235" fill="var(--secondary)" opacity="0.7" />
-            <!-- Flower cluster -->
-            <circle cx="140" cy="125" r="22" fill="var(--accent)" opacity="0.8" />
-            <circle cx="175" cy="120" r="20" fill="var(--accent)" opacity="0.7" />
-            <circle cx="155" cy="100" r="24" fill="var(--accent)" opacity="0.9" />
-            <circle cx="160" cy="140" r="18" fill="var(--accent)" opacity="0.6" />
-            <circle cx="130" cy="108" r="16" fill="var(--accent)" opacity="0.5" />
-            <circle cx="185" cy="138" r="14" fill="var(--accent)" opacity="0.5" />
-            <!-- Flower details (stamens) -->
-            <circle cx="150" cy="115" r="3" fill="var(--background)" />
-            <circle cx="165" cy="108" r="3" fill="var(--background)" />
-            <circle cx="145" cy="100" r="2.5" fill="var(--background)" />
-            <circle cx="170" cy="130" r="2.5" fill="var(--background)" />
-            <!-- Rust-colored leaf undersides (ferrugineum = rust-leaved) -->
-            <path d="M155 340 Q130 335 118 348 Q132 355 155 345" fill="#8B6914" opacity="0.4" />
+          <!-- Botanically accurate Rhododendron ferrugineum (Rostblättrige Alpenrose) -->
+          <!-- Features: tubular-campanulate 5-lobed flowers, 10 exserted stamens, -->
+          <!-- lanceolate leathery leaves with rust-brown (ferrugineum) glandular scales beneath -->
+          <svg class="rhodo-svg" viewBox="0 0 400 520" fill="none" xmlns="http://www.w3.org/2000/svg"
+               role="img" aria-label="Botanische Illustration: Rhododendron ferrugineum">
+            <defs>
+              <radialGradient id="rhodo-glow-grad" cx="50%" cy="30%" r="45%">
+                <stop offset="0%" stop-color="var(--accent)" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="rhodo-stem-g" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6a8a52"/>
+                <stop offset="100%" stop-color="#3d5c2a"/>
+              </linearGradient>
+              <linearGradient id="rhodo-leaf-g" x1="0.2" y1="0" x2="0.8" y2="1">
+                <stop offset="0%" stop-color="#5a8040"/>
+                <stop offset="100%" stop-color="#3d5c2a"/>
+              </linearGradient>
+              <linearGradient id="rhodo-rust-g" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#9B7520"/>
+                <stop offset="100%" stop-color="#7a5c15"/>
+              </linearGradient>
+              <linearGradient id="rhodo-petal-g" x1="0.2" y1="0" x2="0.8" y2="1">
+                <stop offset="0%" stop-color="#e8919e"/>
+                <stop offset="50%" stop-color="#D96A7A"/>
+                <stop offset="100%" stop-color="#c45567"/>
+              </linearGradient>
+              <linearGradient id="rhodo-petal-d" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#c9606f"/>
+                <stop offset="100%" stop-color="#a84858"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Soft ambient glow behind flower cluster -->
+            <circle class="rhodo-glow" cx="200" cy="130" r="140" fill="url(#rhodo-glow-grad)"/>
+
+            <g class="rhodo-plant">
+              <!-- ══════ STEMS (woody, branching) ══════ -->
+              <path class="rhodo-stem"
+                    d="M200 500 C198 450 195 400 193 360 C191 320 193 280 196 240 C198 210 200 185 200 165"
+                    stroke="url(#rhodo-stem-g)" stroke-width="5" stroke-linecap="round"/>
+              <path class="rhodo-stem rhodo-stem-d1"
+                    d="M193 355 C185 335 174 318 162 300"
+                    stroke="url(#rhodo-stem-g)" stroke-width="3.5" stroke-linecap="round"/>
+              <path class="rhodo-stem rhodo-stem-d2"
+                    d="M195 310 C203 292 214 278 228 262"
+                    stroke="url(#rhodo-stem-g)" stroke-width="3" stroke-linecap="round"/>
+
+              <!-- ══════ LEAVES (lanceolate, leathery, alternate) ══════ -->
+              <!-- Green upper-surface leaves with midrib veins -->
+              <path class="rhodo-leaf rl-1"
+                    d="M193 380 C175 372 153 368 138 378 C153 388 175 390 193 384"
+                    fill="url(#rhodo-leaf-g)"/>
+              <path class="rhodo-vein rl-1"
+                    d="M192 382 C176 376 160 374 144 379"
+                    stroke="#2d4a1e" stroke-width="0.6" fill="none" opacity="0.35"/>
+
+              <!-- Leaf showing rust-brown underside (key diagnostic: ferrugineum = rusty) -->
+              <path class="rhodo-leaf rl-2"
+                    d="M197 350 C217 340 239 336 257 346 C239 356 217 358 197 352"
+                    fill="url(#rhodo-rust-g)" opacity="0.7"/>
+
+              <path class="rhodo-leaf rl-3"
+                    d="M191 320 C171 310 149 308 133 318 C149 328 171 330 191 324"
+                    fill="url(#rhodo-leaf-g)"/>
+              <path class="rhodo-vein rl-3"
+                    d="M190 322 C172 316 156 314 140 319"
+                    stroke="#2d4a1e" stroke-width="0.6" fill="none" opacity="0.35"/>
+
+              <path class="rhodo-leaf rl-4"
+                    d="M199 290 C219 280 241 276 259 286 C241 296 219 298 199 292"
+                    fill="url(#rhodo-leaf-g)"/>
+              <path class="rhodo-vein rl-4"
+                    d="M200 288 C218 282 236 280 252 285"
+                    stroke="#2d4a1e" stroke-width="0.6" fill="none" opacity="0.35"/>
+
+              <!-- Sub-branch leaves -->
+              <path class="rhodo-leaf rl-5"
+                    d="M165 305 C149 295 129 293 115 303 C129 313 149 315 165 308"
+                    fill="url(#rhodo-leaf-g)" opacity="0.85"/>
+              <path class="rhodo-leaf rl-6"
+                    d="M224 268 C240 258 260 256 276 266 C260 276 240 278 224 271"
+                    fill="url(#rhodo-rust-g)" opacity="0.6"/>
+
+              <!-- Upper leaves near flower cluster (smaller, tighter spacing) -->
+              <path class="rhodo-leaf rl-7"
+                    d="M196 245 C178 235 158 232 144 242 C158 252 178 254 196 248"
+                    fill="url(#rhodo-leaf-g)" opacity="0.9"/>
+              <path class="rhodo-leaf rl-8"
+                    d="M204 230 C222 220 242 218 258 228 C242 236 222 238 204 233"
+                    fill="url(#rhodo-leaf-g)" opacity="0.85"/>
+              <path class="rhodo-leaf rl-9"
+                    d="M198 215 C182 205 164 202 152 210 C164 220 182 222 198 217"
+                    fill="url(#rhodo-leaf-g)" opacity="0.8"/>
+              <path class="rhodo-leaf rl-10"
+                    d="M202 200 C218 192 236 190 250 198 C236 206 218 208 202 203"
+                    fill="url(#rhodo-leaf-g)" opacity="0.75"/>
+
+              <!-- ══════ FLOWER CLUSTER (Terminal Umbel / Truss) ══════ -->
+              <!-- R. ferrugineum: 6-14 flowers per truss, tubular-campanulate corolla -->
+              <g class="rhodo-flowers">
+                <!-- Pedicels (individual flower stalks, 1-2 cm) -->
+                <g class="rhodo-pedicels" opacity="0.7">
+                  <line x1="200" y1="170" x2="200" y2="105" stroke="#5e7a4a" stroke-width="1.5"/>
+                  <line x1="200" y1="170" x2="170" y2="118" stroke="#5e7a4a" stroke-width="1.3"/>
+                  <line x1="200" y1="170" x2="230" y2="115" stroke="#5e7a4a" stroke-width="1.3"/>
+                  <line x1="200" y1="170" x2="150" y2="135" stroke="#5e7a4a" stroke-width="1.2"/>
+                  <line x1="200" y1="170" x2="248" y2="132" stroke="#5e7a4a" stroke-width="1.2"/>
+                  <line x1="200" y1="170" x2="182" y2="90"  stroke="#5e7a4a" stroke-width="1.2"/>
+                  <line x1="200" y1="170" x2="222" y2="88"  stroke="#5e7a4a" stroke-width="1.2"/>
+                  <line x1="200" y1="170" x2="160" y2="108" stroke="#5e7a4a" stroke-width="1"/>
+                </g>
+
+                <!-- ── FLOWER 1: Center, face-on (most detailed) ── -->
+                <!-- 5-lobed corolla, 10 exserted stamens, diagnostic spots on upper lobes -->
+                <g class="rhodo-flower rf-1">
+                  <!-- Calyx (small, 5-toothed) -->
+                  <ellipse cx="200" cy="108" rx="6" ry="3" fill="#5e7a4a" opacity="0.5"/>
+                  <!-- 5 petals — rose-red, rounded lobes -->
+                  <path d="M200,105 C194,95 190,83 200,78 C210,83 206,95 200,105 Z" fill="url(#rhodo-petal-g)"/>
+                  <path d="M200,105 C208,97 218,89 224,96 C224,104 212,106 200,105 Z" fill="url(#rhodo-petal-g)" opacity="0.95"/>
+                  <path d="M200,105 C210,108 220,116 216,122 C210,124 204,116 200,105 Z" fill="url(#rhodo-petal-d)"/>
+                  <path d="M200,105 C190,108 180,116 184,122 C190,124 196,116 200,105 Z" fill="url(#rhodo-petal-d)" opacity="0.95"/>
+                  <path d="M200,105 C192,97 182,89 176,96 C176,104 188,106 200,105 Z" fill="url(#rhodo-petal-g)" opacity="0.9"/>
+                  <!-- Dark spots on upper petals (diagnostic feature) -->
+                  <circle cx="197" cy="90" r="1.2" fill="#a04050" opacity="0.45"/>
+                  <circle cx="203" cy="89" r="1"   fill="#a04050" opacity="0.4"/>
+                  <circle cx="200" cy="85" r="0.9" fill="#a04050" opacity="0.35"/>
+                  <!-- 5 of 10 stamens (exserted, hairy filaments, brownish-purple anthers) -->
+                  <g class="rhodo-stamens">
+                    <line x1="200" y1="102" x2="194" y2="80" stroke="#d4a8b0" stroke-width="0.7"/>
+                    <line x1="200" y1="102" x2="206" y2="78" stroke="#d4a8b0" stroke-width="0.7"/>
+                    <line x1="200" y1="102" x2="188" y2="86" stroke="#d4a8b0" stroke-width="0.7"/>
+                    <line x1="200" y1="102" x2="212" y2="84" stroke="#d4a8b0" stroke-width="0.7"/>
+                    <line x1="200" y1="102" x2="200" y2="76" stroke="#d4a8b0" stroke-width="0.7"/>
+                    <!-- Anthers -->
+                    <ellipse cx="194" cy="79" rx="1.8" ry="1" fill="#6b4a35" transform="rotate(-10 194 79)"/>
+                    <ellipse cx="206" cy="77" rx="1.8" ry="1" fill="#6b4a35" transform="rotate(10 206 77)"/>
+                    <ellipse cx="188" cy="85" rx="1.8" ry="1" fill="#6b4a35" transform="rotate(-20 188 85)"/>
+                    <ellipse cx="212" cy="83" rx="1.8" ry="1" fill="#6b4a35" transform="rotate(20 212 83)"/>
+                    <ellipse cx="200" cy="75" rx="1.5" ry="0.9" fill="#6b4a35"/>
+                    <!-- Pistil (style + capitate stigma, extends beyond stamens) -->
+                    <line x1="200" y1="105" x2="200" y2="72" stroke="#b05565" stroke-width="1"/>
+                    <circle cx="200" cy="71" r="1.5" fill="#8a3a4a"/>
+                  </g>
+                </g>
+
+                <!-- ── FLOWER 2: Upper-left, slight angle ── -->
+                <g class="rhodo-flower rf-2">
+                  <path d="M170,118 C164,108 160,96 170,92 C180,96 176,108 170,118 Z" fill="url(#rhodo-petal-g)"/>
+                  <path d="M170,118 C178,112 186,106 188,112 C186,118 178,119 170,118 Z" fill="url(#rhodo-petal-g)" opacity="0.93"/>
+                  <path d="M170,118 C175,122 180,130 175,133 C170,132 168,126 170,118 Z" fill="url(#rhodo-petal-d)"/>
+                  <path d="M170,118 C163,120 156,126 158,130 C162,132 167,126 170,118 Z" fill="url(#rhodo-petal-d)" opacity="0.92"/>
+                  <path d="M170,118 C162,112 154,106 152,112 C154,118 162,119 170,118 Z" fill="url(#rhodo-petal-g)" opacity="0.88"/>
+                  <circle cx="167" cy="104" r="1" fill="#a04050" opacity="0.4"/>
+                  <circle cx="173" cy="103" r="0.9" fill="#a04050" opacity="0.35"/>
+                  <g class="rhodo-stamens">
+                    <line x1="170" y1="116" x2="165" y2="96" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <line x1="170" y1="116" x2="175" y2="94" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <line x1="170" y1="116" x2="160" y2="100" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <ellipse cx="165" cy="95" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <ellipse cx="175" cy="93" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <ellipse cx="160" cy="99" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <line x1="170" y1="118" x2="170" y2="90" stroke="#b05565" stroke-width="0.9"/>
+                    <circle cx="170" cy="89" r="1.3" fill="#8a3a4a"/>
+                  </g>
+                </g>
+
+                <!-- ── FLOWER 3: Upper-right, slight angle ── -->
+                <g class="rhodo-flower rf-3">
+                  <path d="M230,115 C224,105 220,93 230,89 C240,93 236,105 230,115 Z" fill="url(#rhodo-petal-g)"/>
+                  <path d="M230,115 C238,109 246,103 248,109 C246,115 238,116 230,115 Z" fill="url(#rhodo-petal-g)" opacity="0.93"/>
+                  <path d="M230,115 C235,119 240,127 235,130 C230,129 228,123 230,115 Z" fill="url(#rhodo-petal-d)"/>
+                  <path d="M230,115 C223,117 216,123 218,127 C222,129 227,123 230,115 Z" fill="url(#rhodo-petal-d)" opacity="0.92"/>
+                  <path d="M230,115 C222,109 214,103 212,109 C214,115 222,116 230,115 Z" fill="url(#rhodo-petal-g)" opacity="0.88"/>
+                  <circle cx="227" cy="101" r="1" fill="#a04050" opacity="0.4"/>
+                  <circle cx="233" cy="100" r="0.9" fill="#a04050" opacity="0.35"/>
+                  <g class="rhodo-stamens">
+                    <line x1="230" y1="113" x2="225" y2="93" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <line x1="230" y1="113" x2="235" y2="91" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <line x1="230" y1="113" x2="240" y2="97" stroke="#d4a8b0" stroke-width="0.6"/>
+                    <ellipse cx="225" cy="92" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <ellipse cx="235" cy="90" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <ellipse cx="240" cy="96" rx="1.5" ry="0.8" fill="#6b4a35"/>
+                    <line x1="230" y1="115" x2="230" y2="87" stroke="#b05565" stroke-width="0.9"/>
+                    <circle cx="230" cy="86" r="1.3" fill="#8a3a4a"/>
+                  </g>
+                </g>
+
+                <!-- ── FLOWER 4: Left, side/profile view ── -->
+                <!-- Tubular-campanulate shape seen from side, petal lobes flaring at opening -->
+                <g class="rhodo-flower rf-4">
+                  <path d="M150,135 C146,128 142,118 145,112 C148,108 152,108 155,112 C158,118 154,128 150,135 Z"
+                        fill="url(#rhodo-petal-g)" opacity="0.9"/>
+                  <path d="M145,112 C142,108 140,104 143,102 C146,104 147,108 145,112 Z" fill="#e8919e" opacity="0.8"/>
+                  <path d="M155,112 C158,108 160,104 157,102 C154,104 153,108 155,112 Z" fill="#e8919e" opacity="0.75"/>
+                  <path d="M150,112 C150,108 148,103 150,100 C152,103 152,108 150,112 Z" fill="#D96A7A" opacity="0.85"/>
+                  <line x1="150" y1="115" x2="148" y2="98" stroke="#d4a8b0" stroke-width="0.6"/>
+                  <line x1="150" y1="115" x2="152" y2="96" stroke="#d4a8b0" stroke-width="0.6"/>
+                  <ellipse cx="148" cy="97" rx="1.3" ry="0.7" fill="#6b4a35"/>
+                  <ellipse cx="152" cy="95" rx="1.3" ry="0.7" fill="#6b4a35"/>
+                </g>
+
+                <!-- ── FLOWER 5: Right, side/three-quarter view ── -->
+                <g class="rhodo-flower rf-5">
+                  <path d="M248,132 C244,125 240,115 243,109 C246,105 250,105 253,109 C256,115 252,125 248,132 Z"
+                        fill="url(#rhodo-petal-g)" opacity="0.9"/>
+                  <path d="M243,109 C240,105 238,101 241,99 C244,101 245,105 243,109 Z" fill="#e8919e" opacity="0.8"/>
+                  <path d="M253,109 C256,105 258,101 255,99 C252,101 251,105 253,109 Z" fill="#e8919e" opacity="0.75"/>
+                  <path d="M248,109 C248,105 246,100 248,97 C250,100 250,105 248,109 Z" fill="#D96A7A" opacity="0.85"/>
+                  <line x1="248" y1="112" x2="246" y2="95" stroke="#d4a8b0" stroke-width="0.6"/>
+                  <line x1="248" y1="112" x2="250" y2="93" stroke="#d4a8b0" stroke-width="0.6"/>
+                  <ellipse cx="246" cy="94" rx="1.3" ry="0.7" fill="#6b4a35"/>
+                  <ellipse cx="250" cy="92" rx="1.3" ry="0.7" fill="#6b4a35"/>
+                </g>
+
+                <!-- ── FLOWER 6: Top-left, partially behind others ── -->
+                <g class="rhodo-flower rf-6">
+                  <path d="M182,90 C178,82 176,72 182,68 C188,72 186,82 182,90 Z" fill="url(#rhodo-petal-g)" opacity="0.75"/>
+                  <path d="M182,90 C188,85 194,81 194,86 C192,90 186,91 182,90 Z" fill="#D96A7A" opacity="0.7"/>
+                  <path d="M182,90 C176,85 170,81 170,86 C172,90 178,91 182,90 Z" fill="url(#rhodo-petal-d)" opacity="0.65"/>
+                  <line x1="182" y1="88" x2="182" y2="65" stroke="#b05565" stroke-width="0.8"/>
+                  <circle cx="182" cy="64" r="1.2" fill="#8a3a4a" opacity="0.8"/>
+                </g>
+
+                <!-- ── FLOWER 7: Top-right, partially behind others ── -->
+                <g class="rhodo-flower rf-7">
+                  <path d="M222,88 C218,80 216,70 222,66 C228,70 226,80 222,88 Z" fill="url(#rhodo-petal-g)" opacity="0.75"/>
+                  <path d="M222,88 C228,83 234,79 234,84 C232,88 226,89 222,88 Z" fill="#D96A7A" opacity="0.7"/>
+                  <path d="M222,88 C216,83 210,79 210,84 C212,88 218,89 222,88 Z" fill="url(#rhodo-petal-d)" opacity="0.65"/>
+                  <line x1="222" y1="86" x2="222" y2="63" stroke="#b05565" stroke-width="0.8"/>
+                  <circle cx="222" cy="62" r="1.2" fill="#8a3a4a" opacity="0.8"/>
+                </g>
+
+                <!-- ── BUD: Unopened, small pointed shape with calyx ── -->
+                <g class="rhodo-bud">
+                  <path d="M160,108 C158,102 157,95 160,90 C163,95 162,102 160,108 Z" fill="#D96A7A" opacity="0.6"/>
+                  <path d="M160,108 C159,103 158,97 160,93" stroke="#5e7a4a" stroke-width="0.8" fill="none"/>
+                  <path d="M158,108 C156,105 158,103 160,108 C162,103 164,105 162,108" fill="#5e7a4a" opacity="0.5"/>
+                </g>
+              </g>
+            </g>
           </svg>
         </div>
       </div>
