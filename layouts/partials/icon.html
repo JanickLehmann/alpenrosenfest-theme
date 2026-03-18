@@ -29,6 +29,30 @@
 {{ else if eq $icon "info" }}
 <svg viewBox="0 0 24 24" fill="none" width="24" height="24"><path d="M20 6L9 17l-5-5" stroke="var(--accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 
+{{ else if eq $icon "instagram" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/></svg>
+
+{{ else if eq $icon "facebook" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3V2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+{{ else if eq $icon "tiktok" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12a4 4 0 104 4V4a5 5 0 005 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+{{ else if eq $icon "youtube" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.94 2C5.12 20 12 20 12 20s6.88 0 8.6-.46a2.78 2.78 0 001.94-2A29 29 0 0023 12a29 29 0 00-.46-5.58z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polygon points="9.75 15.02 15.5 12 9.75 8.98" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+{{ else if eq $icon "email" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/><path d="M22 6l-10 7L2 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+{{ else if eq $icon "website" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" stroke="currentColor" stroke-width="2"/></svg>
+
+{{ else if eq $icon "x" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 4l6.5 7.8L4 20h2l5.3-6.7L16 20h5l-7-8.4L20.5 4H18.5l-4.8 6.1L9 4H4z" stroke="currentColor" stroke-width="1.5" fill="currentColor"/></svg>
+
+{{ else if eq $icon "linkedin" }}
+<svg {{ if $class }}class="{{ $class }}"{{ end }} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="2"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2"/></svg>
+
 {{ else if eq $icon "catering" }}
 <svg viewBox="0 0 48 48" fill="none"><path d="M10 36h28" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/><path d="M12 36v-4c0-6 5-10 12-10s12 4 12 10v4" fill="var(--accent)" opacity="0.15" stroke="var(--accent)" stroke-width="2"/><ellipse cx="24" cy="22" rx="12" ry="3" fill="var(--accent)" opacity="0.3"/><path d="M18 18c0-3 2-5 6-5s6 2 6 5" stroke="var(--secondary)" stroke-width="2" stroke-linecap="round"/><circle cx="24" cy="12" r="1.5" fill="var(--secondary)"/><path d="M21 14c0-2 1.5-3.5 3-4M27 14c0-2-1.5-3.5-3-4" stroke="var(--secondary)" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/></svg>
 

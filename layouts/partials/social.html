@@ -1,0 +1,10 @@
+{{/* Social links partial — reads from site.Params.social */}}
+{{ with site.Params.social }}
+<div class="footer-social">
+  {{ range . }}
+    <a href="{{ .url }}" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="{{ .name }}">
+      {{ partial "icon" (dict "icon" .icon "class" "social-icon") }}
+    </a>
+  {{ end }}
+</div>
+{{ end }}
