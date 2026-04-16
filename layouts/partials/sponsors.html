@@ -1,6 +1,6 @@
 {{ $sponsors := site.Params.sponsors }}
 
-{{ if $sponsors | len | gt 0 }}
+{{- if (gt ($sponsors.items | len) 0) }}
 <section class="section section-sponsors" id="sponsoren">
   <div class="container">
     <div class="section-header">
@@ -8,26 +8,30 @@
       <h2 class="section-title">{{ $sponsors.title }}</h2>
     </div>
     <div class="sponsors-grid">
-      {{ range $sponsors.items }}
-        {{ if .url }}
+      {{- range $sponsors.items }}
+        {{- if .url }}
           <a href="{{ .url }}" class="sponsor-card" target="_blank" rel="noopener noreferrer">
             <div class="sponsor-logo">
-              <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+              {{- with resources.Get .logo }}
+                <img src="{{ .RelPermalink }}" alt="{{ $.name }}" loading="lazy">
+              {{- end }}
             </div>
             <h4 class="sponsor-name">{{ .name }}</h4>
             <p class="sponsor-contribution">{{ .contribution }}</p>
           </a>
-        {{ else }}
+        {{- else }}
           <div class="sponsor-card">
             <div class="sponsor-logo">
-              <img src="{{ .logo }}" alt="{{ .name }}" loading="lazy">
+              {{- with resources.Get .logo }}
+                <img src="{{ .RelPermalink }}" alt="{{ $.name }}" loading="lazy">
+              {{- end }}
             </div>
             <h4 class="sponsor-name">{{ .name }}</h4>
             <p class="sponsor-contribution">{{ .contribution }}</p>
           </div>
-        {{ end }}
-      {{ end }}
+        {{- end }}
+      {{- end }}
     </div>
   </div>
 </section>
-{{ end }}
+{{- end }}
