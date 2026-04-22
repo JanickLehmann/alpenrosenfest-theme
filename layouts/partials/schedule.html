@@ -27,10 +27,10 @@
             <h4>{{ .title }}</h4>
             <div class="timeline-body{{ if .image }} has-image{{ end }}">
               <p>{{ .text }}</p>
-              {{ with .image }}
+              {{- with resources.Get .image }}
               <div class="timeline-image-wrap">
                 {{ with $event.imageLink }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer">{{ end }}
-                <img src="{{ . }}" alt="" class="timeline-image" loading="lazy">
+                <img src="{{ .RelPermalink }}" class="timeline-image" loading="lazy">
                 {{ with $event.imageLink }}</a>{{ end }}
               </div>
               {{ end }}
