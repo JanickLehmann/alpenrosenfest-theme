@@ -9,7 +9,7 @@
     </button>
     <ul class="nav-links">
       {{ range site.Params.nav }}
-        <li><a href="{{ .href }}">{{ .label }}</a></li>
+        <li><a href="{{ site.Home.RelPermalink }}{{ .href }}">{{ .label }}</a></li>
       {{ end }}
     </ul>
   </div>

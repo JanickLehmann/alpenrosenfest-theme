@@ -1,0 +1,22 @@
+{{ $cs := site.Params.comingSoon }}
+{{ $hero := site.Params.hero }}
+
+<main class="coming-soon">
+  <div class="coming-soon-bg">
+    {{ with index $hero.images 0 }}
+      {{ with resources.Get .src }}
+        <img src="{{ .RelPermalink }}" alt="Alpenrosenfest">
+      {{ end }}
+    {{ end }}
+  </div>
+  <div class="coming-soon-overlay"></div>
+  <div class="coming-soon-content">
+    {{ partial "icon.html" (dict "icon" "flower" "class" "coming-soon-icon") }}
+    <h1 class="coming-soon-title">{{ site.Title }}</h1>
+    <h2 class="coming-soon-subtitle">{{ $cs.title }}</h2>
+    <p class="coming-soon-message">{{ $cs.message }}</p>
+    <div class="coming-soon-social">
+      {{ partial "social.html" }}
+    </div>
+  </div>
+</main>

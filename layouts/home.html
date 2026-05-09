@@ -1,11 +1,15 @@
 {{ define "main" }}
 
-{{ partial "hero.html" }}
-{{ partial "about.html" }}
-{{ partial "plant.html" }}
-{{ partial "highlights.html" }}
-{{ partial "schedule.html" }}
-{{ partial "location.html" }}
-{{ partial "sponsors.html" }}
+{{ if site.Params.comingSoon.enabled }}
+  {{ partial "coming-soon.html" }}
+{{ else }}
+  {{ partial "hero.html" }}
+  {{ partial "about.html" }}
+  {{ partial "plant.html" }}
+  {{ partial "highlights.html" }}
+  {{ partial "schedule.html" }}
+  {{ partial "location.html" }}
+  {{ partial "sponsors.html" }}
+{{ end }}
 
 {{ end }}

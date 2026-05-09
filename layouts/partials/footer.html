@@ -5,7 +5,11 @@
         {{ partial "icon" (dict "icon" "flower" "class" "footer-logo-icon") }}
         <span>{{ site.Title }}</span>
       </div>
-      {{ partial "social.html" }}
+      <div class="footer-center">
+        {{ partial "social.html" }}
+        <span class="footer-sep">·</span>
+        <a href="/impressum/" class="footer-link">Impressum</a>
+      </div>
       <p class="footer-copy">{{ site.Copyright }}. {{ site.Params.footerTagline }}.</p>
     </div>
   </div>

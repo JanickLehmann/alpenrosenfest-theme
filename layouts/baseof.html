@@ -3,12 +3,16 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body{{ if not .IsHome }} class="page-inner"{{ end }}{{ if and .IsHome site.Params.comingSoon.enabled }} class="coming-soon-mode"{{ end }}>
+  {{ if not (and .IsHome site.Params.comingSoon.enabled) }}
   <header class="site-header" id="site-header">
     {{ partial "banner.html" . }}
     {{ partial "nav.html" }}
   </header>
+  {{ end }}
   {{ block "main" . }}{{ end }}
+  {{ if not (and .IsHome site.Params.comingSoon.enabled) }}
   {{ partial "footer.html" }}
+  {{ end }}
 </body>
 </html>
