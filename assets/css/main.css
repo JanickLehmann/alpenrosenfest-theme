@@ -1074,6 +1074,58 @@ img {
   font-size: 0.93rem;
 }
 
+/* ── Organizer Section ── */
+.section-organizer {
+  background: var(--white);
+}
+
+.organizer-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.organizer-image {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.organizer-image.revealed {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.organizer-image img {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.organizer-text {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.organizer-text.revealed {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+
+.organizer-text .section-header {
+  text-align: left;
+}
+
+.organizer-text p {
+  color: var(--text-light);
+  font-size: 1.02rem;
+  margin-bottom: 16px;
+}
+
 /* ── Location Section ── */
 .section-location {
   background: var(--background);
@@ -1537,6 +1589,21 @@ img {
     justify-content: center;
   }
 
+  .organizer-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .organizer-image {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .organizer-text .section-header {
+    text-align: center;
+  }
+
   .location-grid {
     grid-template-columns: 1fr;
   }
@@ -1693,7 +1760,7 @@ img {
   .hero { min-height: auto; padding: 40px 20px; }
   .section { padding: 40px 0; }
   .about-card, .timeline-item, .highlight-card, .location-detail,
-  .plant-text, .plant-visual { opacity: 1 !important; transform: none !important; }
+  .plant-text, .plant-visual, .organizer-image, .organizer-text { opacity: 1 !important; transform: none !important; }
   .rhodo-stem { stroke-dashoffset: 0 !important; }
   .rhodo-leaf, .rhodo-vein, .rhodo-flower, .rhodo-bud, .rhodo-pedicels,
   .rhodo-stamens, .rhodo-glow, .rhodo-flowers {

@@ -55,7 +55,7 @@
   });
 
   // Scroll reveal
-  const revealElements = document.querySelectorAll('.about-card, .timeline-item, .highlight-card, .location-detail, .plant-text, .plant-visual, .sponsor-card');
+  const revealElements = document.querySelectorAll('.about-card, .timeline-item, .highlight-card, .location-detail, .plant-text, .plant-visual, .organizer-image, .organizer-text, .sponsor-card');
   const observer = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {

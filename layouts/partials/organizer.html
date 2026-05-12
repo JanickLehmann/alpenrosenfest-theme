@@ -1,0 +1,23 @@
+{{ $organizer := site.Params.organizer }}
+
+<section class="section section-organizer" id="ok">
+  <div class="container">
+    <div class="organizer-layout">
+      <div class="organizer-image">
+        {{- with resources.Get $organizer.image }}
+          {{- $img := .Resize "800x q85" }}
+          <img src="{{ $img.RelPermalink }}" alt="{{ $organizer.title }}" loading="lazy">
+        {{- end }}
+      </div>
+      <div class="organizer-text">
+        <div class="section-header">
+          <span class="section-label">{{ $organizer.label }}</span>
+          <h2 class="section-title">{{ $organizer.title }}</h2>
+        </div>
+        {{ range $organizer.text }}
+          <p>{{ . }}</p>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
