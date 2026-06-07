@@ -1,5 +1,6 @@
 {{ $cs := site.Params.comingSoon }}
 {{ $hero := site.Params.hero }}
+{{ $galleryPage := site.GetPage "/galerie" }}
 
 <main class="coming-soon">
   <div class="coming-soon-bg">
@@ -15,6 +16,11 @@
     <h1 class="coming-soon-title">{{ site.Title }}</h1>
     <h2 class="coming-soon-subtitle">{{ $cs.title }}</h2>
     <p class="coming-soon-message">{{ $cs.message }}</p>
+    {{ with $galleryPage }}
+    <div class="coming-soon-actions">
+      <a href="{{ .RelPermalink }}" class="btn btn-outline">Zur Galerie</a>
+    </div>
+    {{ end }}
     <div class="coming-soon-social">
       {{ partial "social.html" }}
     </div>
