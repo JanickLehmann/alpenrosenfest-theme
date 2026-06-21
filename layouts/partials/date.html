@@ -1,1 +1,5 @@
-{{ site.Params.date | time.Format "2. January 2006" }}
+{{ if eq (printf "%T" site.Params.date) "toml.LocalDate" }}
+  {{ site.Params.date | time.Format "2. January 2006" }}
+{{ else }}
+ {{ site.Params.date | safeHTML }}
+{{ end }}
